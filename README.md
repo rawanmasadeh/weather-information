@@ -18,10 +18,11 @@ This is a  weather information prototype that fetches data from the open weather
    ```bash
    git clone https://github.com/your-username/weatherinformation.git
 
-## Install dependencies
+2. Install dependencies:
+   ```bash
 cd weatherinfo-express
 npm install
 
-## Start the server
-
+3. Start the server:
+   ```bash
 node index.js
