@@ -27,5 +27,5 @@ npm install
 
 3. Start the server:
 `
-node index.js
+node server.mjs
 `
