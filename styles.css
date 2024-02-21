@@ -1,8 +1,8 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif, "Segoe UI Emoji";
     margin: 0;
     padding: 0;
-    background-color: #f7f7f7;
+    background-color: #e3f2fd;
 }
 
 .container {
@@ -10,86 +10,96 @@ body {
     margin: 50px auto;
     padding: 20px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 8px;
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
 h1 {
+    color: #0277bd;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 label {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    color: #455a64;
+    font-size: 18px;
 }
 
 input[type="text"] {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 1px solid #bdbdbd;
+    border-radius: 8px;
     box-sizing: border-box;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 button {
-    padding: 8px 16px;
-    background-color: #007bff;
+    padding: 10px 20px;
+    background-color: #039be5;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0277bd;
 }
 
 .button {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
-.weather-card {
+.weather-card, .forecast-card {
     padding: 20px;
     margin-top: 20px;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .weather-card #weatherIcon {
-    font-size: 48px;
-    margin-bottom: 10px;
+    font-size: 60px;
+    margin-bottom: 15px;
+    color: #039be5;
 }
 
 .weather-card #temperature {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 36px;
+    margin-bottom: 15px;
+    color: #f57c00;
 }
 
 .weather-card #weatherDescription {
-    font-size: 16px;
-    color: #666;
+    font-size: 20px;
+    color: #455a64;
 }
 
-.forecast-card {
-    margin-top: 20px;
-    padding: 20px;
-    border-radius: 5px;
+.forecast-day {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.forecast-day-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
     background-color: #f9f9f9;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 600px) {
-    .container {
-        padding: 10px;
-    }
-
-    .weather-card {
-        padding: 10px;
-    }
-
-    .forecast-card {
-        padding: 10px;
-    }
+.current-temp {
+    font-size: 40px;
+    font-weight: bold;
+    color: #ef6c00;
 }

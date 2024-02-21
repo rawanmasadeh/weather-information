@@ -9,59 +9,18 @@
 <body>
 <div class="container">
     <h1>Weather Information</h1>
-    <label for="location">Enter location (e.g., "KATL" for Atlanta):</label>
+    <label for="location">Enter location :</label>
     <input type="text" id="location" name="location">
     <button onclick="getWeather()">Get Weather</button>
-    <div id="currentWeather"></div>
-    <div id="temperatureTrends"></div>
-    <div id="forecast"></div>
-    <a class="weatherwidget-io" href="#" data-label_1="" data-label_2="Weather" data-theme="original">Weather</a>
+    <div id="currentWeather" style="display: none;">
+        <span id="currentTemp"></span> Current Temperature: <span id="temperature"></span>°F
+    </div>    
+    <div id="temperatureTrends">
+        <canvas id="temperatureChart" width="400" height="200"></canvas>
+    </div>
+    <div id="forecast" class="forecast-card"></div>
 </div>
-<script>
-    function setWeatherWidgetTemperature(temperature) {
-        const location = document.getElementById("location").value;
-        const locationSlug = location.toLowerCase().replace(/\s/g, '-'); // Convert location to slug format (e.g., "new-york")
-        const widget = document.querySelector(".weatherwidget-io");
-        widget.setAttribute("href", `https://forecast7.com/en/${locationSlug}/`);
-        widget.setAttribute("data-label_1", location.toUpperCase());
-        widget.setAttribute("data-label_2", `${temperature}°C`);
-        if (typeof _WidgetManager !== "undefined") {
-            _WidgetManager._Init();
-            _WidgetManager._RegisterWidget('_weather', new _WidgetInfo('weatherwidget-io', 'https://forecast7.com/'));
-        }
-    }
-
-    function getWeather() {
-        const location = document.getElementById("location").value;
-        fetch(`https://api.weather.gov/stations/${location}/observations/latest`)
-            .then(response => response.json())
-            .then(data => {
-                const temperature = data.properties.temperature.value;
-                const temperatureUnit = data.properties.temperature.unitCode;
-                document.getElementById("currentWeather").innerHTML = `Current Temperature: ${temperature} ${temperatureUnit}`;
-                setWeatherWidgetTemperature(temperature);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                document.getElementById("currentWeather").innerHTML = "Error fetching weather data.";
-            });
-
-        fetch(`https://api.weather.gov/stations/${location}/observations`)
-            .then(response => response.json())
-            .then(data => {
-                const temperatureValues = data.features.map(feature => feature.properties.temperature.value);
-                document.getElementById("temperatureTrends").innerHTML = `Temperature Trends for the Past Week: ${temperatureValues.join(", ")}`;
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                document.getElementById("temperatureTrends").innerHTML = "Error fetching temperature trends.";
-            });
-    }
-
-    document.addEventListener("DOMContentLoaded", function() {
-        setWeatherWidgetTemperature(""); // Initial widget state
-    });
-</script>
-<script src="https://weatherwidget.io/js/widget.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
