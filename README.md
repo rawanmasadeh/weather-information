@@ -20,7 +20,7 @@ This is a  weather information prototype that fetches data from the open weather
    `
 2. Install dependencies:
 `
-cd weatherinfo-express`
+cd your-dierctory`
 `
 npm install 
 `
