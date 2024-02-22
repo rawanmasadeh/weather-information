@@ -15,16 +15,16 @@ This is a  weather information prototype that fetches data from the open weather
 ## Getting Started
 1. Clone the repository:
    `
-   git clone https://github.com/your-username/weatherinformation.git
+   git clone -branch-
    `
-2. Install dependencies:
+3. Install dependencies:
 `
 cd weatherinfo-express`
 `
 npm install 
 `
 
-3. Start the server:
+4. Start the server:
 `
 node server.mjs
 `
